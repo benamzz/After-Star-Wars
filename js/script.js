@@ -69,7 +69,7 @@ class Thing extends Particule {
             // const imgRatio = img.naturalWidth / img.naturalHeight;
             // imgHeight = Math.floor(this.width / imgRatio); // use ratio to compute `carHeight`      
         }
-        img.src = "https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654713018/bird/flappy%20monkey/player_zyfl6w.png";
+        img.src = "https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654709752/bird/flappy%20monkey/flappyMonkey_omcowe.png";
     }
     up(strength = 6) {
         this.applyForce(new Vec(0, -strength));
@@ -326,15 +326,16 @@ function animLoop() {
     if (!gameover) {
         raf = requestAnimationFrame(animLoop);
         ctx.font = '20px serif';
+        ctx.fillStyle = 'wheat'
         ctx.fillText(score, 30, 30)
     } else {
         ctx.clearRect(0, 0, W, H)
         ctx.font = '50px serif';
-        ctx.fillStyle = 'white'
+        ctx.fillStyle = 'wheat';
         ctx.fillText('GAME OVER', 150, 300);
         ctx.font = '20px serif';
-        ctx.fillStyle = 'white'
-        ctx.fillText(score, 270, 330)
+        ctx.fillStyle = 'wheat';
+        ctx.fillText(score, 270, 330);
         music.pause();
     }
 

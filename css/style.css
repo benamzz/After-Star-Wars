@@ -8,15 +8,13 @@ body {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: white,
-        /* padding: 5%; */
-
+    background-color: wheat
 }
 
 h1 {
     margin-block: 2rem;
     background-color: rgb(84, 14, 100);
-    color: white;
+    color: wheat;
     border: solid 2px rgb(84, 14, 100);
     border-radius: 20px;
     padding: 1rem;
@@ -40,8 +38,7 @@ p {
     border-radius: 10px;
 
     background-color: rgb(84, 14, 100);
-    color: white;
-
+    color: wheat;
     margin-block: 2rem;
     padding: 1rem;
 
