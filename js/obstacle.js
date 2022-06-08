@@ -1,8 +1,8 @@
 let imgHeight = 20;
 class Obstacles {
     constructor(x, y) {
-        this.width = 50;
-        this.height = 40; //100 / imgRatio;  // use ratio to compute `carHeight`
+        this.width = 100;
+        this.height = 80; //100 / imgRatio;  // use ratio to compute `carHeight`
         this.x = x;
         this.y = y;
         this.color = "white"

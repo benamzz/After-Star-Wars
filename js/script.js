@@ -115,11 +115,16 @@ class Thing extends Particule {
     crashWith(obstacle) {
         // console.log('hey', obstacle.x, obstacle.y, obstacle.width, obstacle.height)
         return (
-            this.pos.y + 20 > obstacle.y &&
+            this.pos.y + this.h - 10 > obstacle.y &&
             this.pos.y < obstacle.y + obstacle.height &&
-            this.pos.x + 20 > obstacle.x &&
+            this.pos.x + this.w - 10 > obstacle.x &&
             this.pos.x < obstacle.x + obstacle.width
         );
+
+        // this.bottom() > obstacle.top() &&
+        // this.top() < obstacle.bottom() &&
+        // this.right() > obstacle.left() &&
+        // this.left() < obstacle.right()
     }
 }
 
@@ -144,7 +149,7 @@ function updateObstacles() {
 }
 
 function draw() {
-    ctx.clearRect(0, 0, W, H);
+    ctx.clearRect(0, -200, W, H + 200);
 
     //ctx.translate(player.x, 0)
 
@@ -162,35 +167,30 @@ function draw() {
     player.update();
     player.paint();
 
+    let difficulty = 150
+    setInterval(() => {
+        difficulty -= 10
+    }, 5000)
 
     // creation d'un obstacle toutes les 150 frames
-    if (frames % 150 === 0) {
+    if (frames % difficulty === 0) {
         createObstacle()
     }
     updateObstacles(); // les obstacles descendent + creation
     checkGameOver();
-    if (myObstacles.length > 10) {
-        frames++
-    } else if (myObstacles.length > 20) {
-        frames++
-    } else if (myObstacles.length > 40) {
-        frames++
-    } else if (myObstacles.length > 60) {
-        frames++
-    }
 }
 
 function createObstacle() {
     // limitation de la width d'un obstacle
 
 
-    randomX = Math.floor(Math.random() * W + 1);
-    // randomX2 = Math.floor(Math.random() * (W / 3) + (W / 3));
+    let randomX = Math.floor(Math.random() * W + 1);
+    let randomX2 = Math.floor(Math.random() * (W / 3) + (W / 3));
 
     let obstacle = new Obstacles(randomX, 0)
-    // let obstacle2 = new Obstacles(randomX2, -120)
+    let obstacle2 = new Obstacles(randomX2, -120)
 
-    myObstacles.push(obstacle);
+    myObstacles.push(obstacle, obstacle2);
     score = "score : " + (myObstacles.length - 1) * 10;
 
 }
@@ -252,11 +252,12 @@ function startGame() {
     }
 
     gameover = false;
+    difficulty = 150;
     points = 0;
     myObstacles = []; // reset ton tab des obtstacles
     score = "score : " + 0;
     player;
-    player.pos.y = 0;
+    player.pos.y = 200;
     player.pos.x = W / 2;
     player.acc = new Vec(0, 0);
     player.vel = new Vec(0, 0);
@@ -271,9 +272,14 @@ function checkGameOver() {
     //
     // player touche les bords ?
     //
-
     if (player.pos.y >= H - player.h) {
         player.pos.y = H - player.h; // max
+        player.vel.mult(0); // stop
+        // console.log("gameover", player.pos.y, player.pos.x)
+        gameover = true;
+    }
+    if (player.pos.y <= -10) {
+        player.pos.y = 0; // max
         player.vel.mult(0); // stop
         // console.log("gameover", player.pos.y, player.pos.x)
         gameover = true;
