@@ -69,7 +69,7 @@ class Thing extends Particule {
             // const imgRatio = img.naturalWidth / img.naturalHeight;
             // imgHeight = Math.floor(this.width / imgRatio); // use ratio to compute `carHeight`      
         }
-        img.src = "https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654709752/bird/flappy%20monkey/flappyMonkey_omcowe.png";
+        img.src = "https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654713018/bird/flappy%20monkey/player_zyfl6w.png";
     }
     up(strength = 6) {
         this.applyForce(new Vec(0, -strength));
