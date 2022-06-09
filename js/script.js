@@ -14,7 +14,8 @@ let frames = 0;
 let myObstacles = []
 let score = 0;
 
-const music = new Audio('https://res.cloudinary.com/dxwvgsbzq/video/upload/v1654704842/bird/flappy%20monkey/04_Chill_yebpvf.mp3');
+const music = new Audio('https://res.cloudinary.com/dxwvgsbzq/video/upload/v1654776442/bird/flappy%20monkey/R2d2_2_oowwr5.mp3');
+const musicGameOver = new Audio('https://res.cloudinary.com/dxwvgsbzq/video/upload/v1654776438/bird/flappy%20monkey/R2D2_Scream_ukdsgz.mp3');
 
 class Vec {
     constructor(x, y) {
@@ -60,8 +61,8 @@ class Particule {
 class Thing extends Particule {
     constructor(x, y) {
         super(x, y);
-        this.w = 50;
-        this.h = 40;
+        this.w = 60;
+        this.h = 60;
         let img = document.createElement('img');
         img.onload = () => {
             this.img = img;
@@ -69,7 +70,7 @@ class Thing extends Particule {
             // const imgRatio = img.naturalWidth / img.naturalHeight;
             // imgHeight = Math.floor(this.width / imgRatio); // use ratio to compute `carHeight`      
         }
-        img.src = "https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654709752/bird/flappy%20monkey/flappyMonkey_omcowe.png";
+        img.src = "https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654777044/bird/flappy%20monkey/r2d2_qlflol.png";
     }
     up(strength = 6) {
         this.applyForce(new Vec(0, -strength));
@@ -115,10 +116,10 @@ class Thing extends Particule {
     crashWith(obstacle) {
         // console.log('hey', obstacle.x, obstacle.y, obstacle.width, obstacle.height)
         return (
-            this.pos.y + this.h - 10 > obstacle.y &&
-            this.pos.y < obstacle.y + obstacle.height &&
-            this.pos.x + this.w - 10 > obstacle.x &&
-            this.pos.x < obstacle.x + obstacle.width
+            this.pos.y + this.h - 15 > obstacle.y &&
+            this.pos.y + 15 < obstacle.y + obstacle.height &&
+            this.pos.x + this.w - 15 > obstacle.x &&
+            this.pos.x + 15 < obstacle.x + obstacle.width
         );
 
         // this.bottom() > obstacle.top() &&
@@ -185,12 +186,12 @@ function createObstacle() {
 
 
     let randomX = Math.floor(Math.random() * W + 1);
-    let randomX2 = Math.floor(Math.random() * (W / 3) + (W / 3));
+    // let randomX2 = Math.floor(Math.random() * (W / 3) + (W / 3));
 
     let obstacle = new Obstacles(randomX, 0)
-    let obstacle2 = new Obstacles(randomX2, -120)
+    // let obstacle2 = new Obstacles(randomX2, -120)
 
-    myObstacles.push(obstacle, obstacle2);
+    myObstacles.push(obstacle);
     score = "score : " + (myObstacles.length - 1) * 10;
 
 }
@@ -343,6 +344,7 @@ function animLoop() {
         ctx.fillStyle = 'wheat';
         ctx.fillText(score, 270, 330);
         music.pause();
+        musicGameOver.play();
     }
 
 }

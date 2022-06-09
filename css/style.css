@@ -8,24 +8,26 @@ body {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: wheat
+    background-color: rgb(52, 52, 146);
 }
 
 h1 {
     margin-block: 2rem;
-    background-color: rgb(84, 14, 100);
-    color: wheat;
-    border: solid 2px rgb(84, 14, 100);
+    background-color: white;
+    color: rgb(52, 52, 146);
+    font-size: 50px;
+    border: solid 2px white;
     border-radius: 20px;
     padding: 1rem;
 }
 
-/* .game-page .titre {
-    margin: 10rem
-} */
-
 p {
-    color: rgb(84, 14, 100);
+    color: white
+}
+
+.r2d2 img {
+    width: 200px;
+    height: 200px;
 }
 
 .game-page {
@@ -33,12 +35,13 @@ p {
 }
 
 #button-start {
-    border: solid 2px rgb(84, 14, 100);
-    ;
+    border: solid 2px white;
+
     border-radius: 10px;
 
-    background-color: rgb(84, 14, 100);
-    color: wheat;
+    background-color: white;
+    color: rgb(52, 52, 146);
+
     margin-block: 2rem;
     padding: 1rem;
 
@@ -51,5 +54,5 @@ canvas {
     margin-block: 10%;
     border: 1px solid;
     border-radius: 20px;
-    background-image: url("https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654543466/bird/flappy%20monkey/space_idmlkx.png");
+    background-image: url("https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654777757/bird/flappy%20monkey/3ddfbaaff070ea604879e06f4dc8669f_eb0boc.jpg");
 }
