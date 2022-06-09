@@ -15,8 +15,8 @@ h1 {
     margin-block: 2rem;
     background-color: white;
     color: rgb(52, 52, 146);
-    font-size: 50px;
-    border: solid 2px white;
+    font-size: 30px;
+    border: solid 2px black;
     border-radius: 20px;
     padding: 1rem;
 }
@@ -35,7 +35,7 @@ p {
 }
 
 #button-start {
-    border: solid 2px white;
+    border: solid 3px black;
 
     border-radius: 10px;
 
@@ -52,7 +52,7 @@ p {
 
 canvas {
     margin-block: 10%;
-    border: 1px solid;
+    border: 5px solid white;
     border-radius: 20px;
     background-image: url("https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654777757/bird/flappy%20monkey/3ddfbaaff070ea604879e06f4dc8669f_eb0boc.jpg");
 }
