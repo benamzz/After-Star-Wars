@@ -341,10 +341,10 @@ function animLoop() {
         // création ------------------------------------------------------------------------
         ctx.clearRect(0, 0, W, H)
         ctx.font = '45px serif';
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = 'rgb(212, 212, 212)';
         ctx.fillText('GAME OVER', W / 4, H / 2);
         ctx.font = '20px serif';
-        ctx.fillStyle = 'white';
+        ctx.fillStyle = 'rgb(212, 212, 212)';
         ctx.fillText(score, W / 3 + 50, H / 2 + 20);
         music.pause();
         musicGameOver.play();
