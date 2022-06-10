@@ -116,10 +116,10 @@ class Thing extends Particule {
     crashWith(obstacle) {
         // console.log('hey', obstacle.x, obstacle.y, obstacle.width, obstacle.height)
         return (
-            this.pos.y + this.h - 15 > obstacle.y &&
-            this.pos.y + 15 < obstacle.y + obstacle.height &&
-            this.pos.x + this.w - 15 > obstacle.x &&
-            this.pos.x + 15 < obstacle.x + obstacle.width
+            this.pos.y + this.h - 20 > obstacle.y &&
+            this.pos.y + 20 < obstacle.y + obstacle.height &&
+            this.pos.x + this.w - 20 > obstacle.x &&
+            this.pos.x + 20 < obstacle.x + obstacle.width
         );
 
         // this.bottom() > obstacle.top() &&
@@ -170,9 +170,12 @@ function draw() {
 
     // la création d'obstacle se fait de plus en plus rapide toute les 5000ms
     let difficulty = 150
-    setInterval(() => {
-        difficulty -= 10
-    }, 5000)
+    // setInterval(() => {
+    //     difficulty -= 10
+    // }, 5000)
+    if (myObstacles.length >= 15) {
+        difficulty = 100;
+    }
 
     // creation d'un obstacle toutes les 150 frames puis augmente en fonction de difficulty
     if (frames % difficulty === 0) {
@@ -190,7 +193,7 @@ function createObstacle() {
     // -----------------------------------possibilité de doubler les obstacles----------------------------------------------
     // let randomX2 = Math.floor(Math.random() * (W / 3) + (W / 3));
 
-    let obstacle = new Obstacles(randomX, -20)
+    let obstacle = new Obstacles(randomX, 0)
     // let obstacle2 = new Obstacles(randomX2, -120)
 
     myObstacles.push(obstacle);
@@ -261,7 +264,7 @@ function startGame() {
     score = "score : " + 0;
     player;
     player.pos.y = 200;
-    player.pos.x = W / 2;
+    player.pos.x = (W / 2) - 30;
     player.acc = new Vec(0, 0);
     player.vel = new Vec(0, 0);
     music.play();
