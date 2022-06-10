@@ -130,7 +130,7 @@ class Thing extends Particule {
 }
 
 
-let player = new Thing(300, 0);
+let player = new Thing();
 
 
 
@@ -168,12 +168,13 @@ function draw() {
     player.update();
     player.paint();
 
+    // la création d'obstacle se fait de plus en plus rapide toute les 5000ms
     let difficulty = 150
     setInterval(() => {
         difficulty -= 10
     }, 5000)
 
-    // creation d'un obstacle toutes les 150 frames
+    // creation d'un obstacle toutes les 150 frames puis augmente en fonction de difficulty
     if (frames % difficulty === 0) {
         createObstacle()
     }
@@ -186,6 +187,7 @@ function createObstacle() {
 
 
     let randomX = Math.floor(Math.random() * W + 1);
+    // -----------------------------------possibilité de doubler les obstacles----------------------------------------------
     // let randomX2 = Math.floor(Math.random() * (W / 3) + (W / 3));
 
     let obstacle = new Obstacles(randomX, -20)
@@ -333,16 +335,17 @@ function animLoop() {
     if (!gameover) {
         raf = requestAnimationFrame(animLoop);
         ctx.font = '20px serif';
-        ctx.fillStyle = 'wheat'
+        ctx.fillStyle = 'white'
         ctx.fillText(score, 30, 30)
     } else {
+        // création ------------------------------------------------------------------------
         ctx.clearRect(0, 0, W, H)
-        ctx.font = '50px serif';
-        ctx.fillStyle = 'wheat';
-        ctx.fillText('GAME OVER', 150, 300);
+        ctx.font = '45px serif';
+        ctx.fillStyle = 'white';
+        ctx.fillText('GAME OVER', W / 4, H / 2);
         ctx.font = '20px serif';
-        ctx.fillStyle = 'wheat';
-        ctx.fillText(score, 270, 330);
+        ctx.fillStyle = 'white';
+        ctx.fillText(score, W / 3 + 50, H / 2 + 20);
         music.pause();
         musicGameOver.play();
     }
