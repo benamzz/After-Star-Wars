@@ -188,7 +188,7 @@ function createObstacle() {
     let randomX = Math.floor(Math.random() * W + 1);
     // let randomX2 = Math.floor(Math.random() * (W / 3) + (W / 3));
 
-    let obstacle = new Obstacles(randomX, 0)
+    let obstacle = new Obstacles(randomX, -20)
     // let obstacle2 = new Obstacles(randomX2, -120)
 
     myObstacles.push(obstacle);
