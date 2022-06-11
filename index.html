@@ -10,30 +10,43 @@
 </head>
 
 <body>
-    <div class="game-page">
+    <main>
+        <div class="game-page">
 
-        <h1>Star Wars Is Coming</h1>
-        <p>Help R2-D2 break through the asteroid barrier !!</p>
-        <div class="r2d2">
-            <img src="https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654777044/bird/flappy%20monkey/r2d2_qlflol.png"
-                alt="image r2d2">
+            <h1>Star Wars Is Coming</h1>
+            <p>Help R2-D2 break through the asteroid barrier !!</p>
+            <div class="r2d2">
+                <img src="https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654777044/bird/flappy%20monkey/r2d2_qlflol.png"
+                    alt="image r2d2">
+            </div>
+            <div>
+                <button id="button-start">StartGame</button>
+            </div>
+            <div>
+                <img src="https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654698964/bird/flappy%20monkey/arrows_fakca0.png"
+                    alt="arrows" class="arrows-img" />
+
+                <p>Use the arrows to show the way to R2-D2</p>
+            </div>
         </div>
+
+        <div id="game-board">
+            <canvas width="700" height="550"></canvas>
+            <script src="js/obstacle.js"></script>
+            <script src="js/script.js"></script>
+        </div>
+    </main>
+    <footer>
         <div>
-            <button id="button-start">StartGame</button>
-        </div>
-        <div>
-            <img src="https://res.cloudinary.com/dxwvgsbzq/image/upload/v1654698964/bird/flappy%20monkey/arrows_fakca0.png"
-                alt="arrows" class="arrows-img" />
+            <a
+                href="https://docs.google.com/presentation/d/e/2PACX-1vRR4dB7orjCmgeYEMVYI7v4Lt762Oa_4RjN4dOm3XyYz48VxWn7XpeelYBb0zRjgeAWa9Y9UNUmYYqK/pub?start=false&loop=false&delayms=3000">
+                Diaporama
+            </a>
+            <p>© 2022 | All rights reserved.</p>
 
-            <p>Use the arrows to show the way to R2-D2</p>
         </div>
-    </div>
+    </footer>
 
-    <div id="game-board">
-        <canvas width="700" height="550"></canvas>
-        <script src="js/obstacle.js"></script>
-        <script src="js/script.js"></script>
-    </div>
 </body>
 
 </html>
